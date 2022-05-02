@@ -23,7 +23,6 @@ export default function AgendaForm({ addData, toggleDrawer }) {
 		setStatus(event.target.value);
 	};
 	const dateTimeHandler = (value) => {
-		console.log('this is value', value);
 		setDateTime(value);
 	};
 	const handleTitle = (e) => {

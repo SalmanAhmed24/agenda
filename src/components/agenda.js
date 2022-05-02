@@ -45,11 +45,9 @@ function Agenda() {
 		// setData((data) => [ ...data, dataObj ]);
 	};
 	const editData = (d, id) => {
-		console.log('this is d', d);
 		axios
 			.put(`https://agenda-test-backend.herokuapp.com/api/editAgendas?id=${id}`, d)
 			.then((res) => {
-				console.log(res);
 				getAgendas();
 			})
 			.catch((err) => console.log(err));
@@ -81,11 +79,13 @@ function Agenda() {
 	});
 	return (
 		<div className="agenda">
-			<div className="downloadWrap">
-				<CSVLink data={csvData}>
-					<FileDownload sx={{ fontSize: 25 }} /> <span>Download CSV</span>
-				</CSVLink>
-			</div>
+			{data.length ? (
+				<div className="downloadWrap">
+					<CSVLink data={csvData}>
+						<FileDownload sx={{ fontSize: 25 }} /> <span>Download CSV</span>
+					</CSVLink>
+				</div>
+			) : null}
 			<div className="addBtnWrap">
 				<Button onClick={agendaModalHandler} variant="contained">
 					Add Agenda

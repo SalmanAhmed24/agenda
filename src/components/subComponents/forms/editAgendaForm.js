@@ -10,7 +10,6 @@ import Button from '@mui/material/Button';
 import moment from 'moment';
 
 export default function EditAgendaForm({ editData, actualData, toggleDrawer }) {
-	console.log(actualData);
 	//  title, description, status, date/time
 	const [ status, setStatus ] = useState('pending');
 	const [ title, setTitle ] = useState();
@@ -32,7 +31,6 @@ export default function EditAgendaForm({ editData, actualData, toggleDrawer }) {
 		setStatus(event.target.value);
 	};
 	const dateTimeHandler = (value) => {
-		console.log('this is value', value);
 		setDateTime(value);
 	};
 	const handleTitle = (e) => setTitle(e.target.value);
