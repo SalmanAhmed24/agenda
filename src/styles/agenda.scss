@@ -1,0 +1,43 @@
+.addBtnWrap {
+	display: flex;
+	justify-content: flex-end;
+}
+.agendaDrawer {
+	.MuiDrawer-paperAnchorRight {
+		width: 700px;
+	}
+}
+.wraper {
+	padding: 20px 50px;
+}
+#datetimepicker-1 {
+	.sc-fYiAbW {
+		width: 270px;
+		margin-left: 10px;
+		.sc-iRbamj {
+			align-self: flex-start;
+		}
+		.sc-bbmXgH {
+			.sc-dUjcNx {
+				border-radius: 5px;
+			}
+		}
+	}
+}
+.downloadWrap {
+	display: flex;
+	justify-content: flex-end;
+	a {
+		margin-bottom: 20px;
+		align-self: center;
+		display: flex;
+		text-decoration: none;
+		transition: 0.3s ease-in-out;
+		span {
+			align-self: center;
+		}
+		&:hover {
+			transform: scale(1.02);
+		}
+	}
+}
