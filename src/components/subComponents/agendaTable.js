@@ -43,7 +43,7 @@ function AgendaTable({ data, editData, deleteData }) {
 								</TableCell>
 								<TableCell>{row.description}</TableCell>
 								<TableCell>{row.status}</TableCell>
-								<TableCell>{row.dateTime}</TableCell>
+								<TableCell>{moment(row.dateTime).format('lll')}</TableCell>
 								<TableCell className="actionCol">
 									<MoreVertIcon
 										className="menuAct"

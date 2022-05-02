@@ -26,9 +26,7 @@ export default function EditAgendaForm({ editData, actualData, toggleDrawer }) {
 		setStatus(actualData.status !== null || actualData.status !== undefined ? actualData.status : 'pending');
 		setTitle(actualData.title !== null || actualData.title !== undefined ? actualData.title : '');
 		setDesc(actualData.description !== null || actualData.description !== undefined ? actualData.description : '');
-		setDateTime(
-			actualData.dateTime !== null || actualData.dateTime !== undefined ? actualData.dateTime : new Date()
-		);
+		setDateTime(actualData.dateTime);
 	}, []);
 	const handleStatus = (event) => {
 		setStatus(event.target.value);
@@ -57,7 +55,7 @@ export default function EditAgendaForm({ editData, actualData, toggleDrawer }) {
 				title,
 				description: desc,
 				status,
-				dateTime: moment(dateTime).format('MMMM Do YYYY, h:mm:ss a')
+				dateTime: new Date(dateTime)
 			};
 			editData(dataObj, actualData._id);
 			toggleDrawer();

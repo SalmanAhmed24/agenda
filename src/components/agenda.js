@@ -8,7 +8,7 @@ import LinearProgress from '@mui/material/LinearProgress';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import { CSVLink, CSVDownload } from 'react-csv';
-import FileDownloadIcon from '@mui/icons-material/FileDownload';
+import moment from 'moment';
 import { FileDownload } from '@mui/icons-material';
 function Agenda() {
 	const [ data, setData ] = useState([]);
@@ -21,7 +21,7 @@ function Agenda() {
 	function getAgendas() {
 		setLoaderFlag(true);
 		axios
-			.get('http://localhost:3002/api/allAgendas')
+			.get('https://agenda-test-backend.herokuapp.com/api/allAgendas')
 			.then((res) => {
 				setData(res.data);
 				setLoaderFlag(false);
@@ -34,7 +34,7 @@ function Agenda() {
 	const addData = (dataObj) => {
 		setLoaderFlag(true);
 		axios
-			.post('http://localhost:3002/api/addAgendas', dataObj)
+			.post('https://agenda-test-backend.herokuapp.com/api/addAgendas', dataObj)
 			.then((res) => {
 				getAgendas();
 				setLoaderFlag(false);
@@ -47,7 +47,7 @@ function Agenda() {
 	const editData = (d, id) => {
 		console.log('this is d', d);
 		axios
-			.put(`http://localhost:3002/api/editAgendas?id=${id}`, d)
+			.put(`https://agenda-test-backend.herokuapp.com/api/editAgendas?id=${id}`, d)
 			.then((res) => {
 				console.log(res);
 				getAgendas();
@@ -63,7 +63,7 @@ function Agenda() {
 		}).then((result) => {
 			if (result.isConfirmed) {
 				axios
-					.delete(`http://localhost:3002/api/deleteAgendas?id=${id}`)
+					.delete(`https://agenda-test-backend.herokuapp.com/api/deleteAgendas?id=${id}`)
 					.then((res) => {
 						getAgendas();
 					})
@@ -76,7 +76,7 @@ function Agenda() {
 			title: i.title,
 			description: i.description,
 			status: i.status,
-			dateTime: i.dateTime
+			dateTime: moment(i.dateTime).format('llll')
 		};
 	});
 	return (

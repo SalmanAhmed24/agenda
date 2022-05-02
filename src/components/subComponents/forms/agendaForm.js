@@ -57,7 +57,7 @@ export default function AgendaForm({ addData, toggleDrawer }) {
 				title,
 				description: desc,
 				status,
-				dateTime: moment(dateTime).format('MMMM Do YYYY, h:mm:ss a')
+				dateTime: new Date(dateTime)
 			};
 			addData(dataObj);
 			toggleDrawer();
